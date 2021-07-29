@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Article from '../components/Articles/Article';
+import { fireEvent, render, screen } from '@testing-library/react';
+import Search from '../components/Articles/Search';
 import NewsSearch from './NewsSearch';
 
 describe('News search container', () => {
@@ -11,6 +11,13 @@ describe('News search container', () => {
   it('Renders the search bar', async () => {
     render(<NewsSearch />);
 
-    const searchTerm = screen.getByLabelText('Search:');
+    // Search input is rendered
+    const searchInput = screen.getByLabelText('Search:');
+
+    // User enters search term
+    fireEvent.change(searchInput, { target: { value: 'covid' }});
+    expect(searchInput).toHaveValue('covid');
+
+
   });
 });
