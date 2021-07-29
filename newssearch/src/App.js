@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import Search from './components/Articles/Search';
+import NewsSearch from './containers/NewsSearch';
 
 function App() {
   return (
     <>
-      <Search />
+      <NewsSearch />
     </>
   );
 }
